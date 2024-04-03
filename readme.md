@@ -9,7 +9,7 @@ The functionality of the project will be added as the project progresses.
 ## Installation
 Clone the repository to your local machine using the following command:
 ```bash
-git clone
+git clone https://github.com/gigasamkharadze/tbc-django.git
 ```
 Install the required packages using the following command:
 ```bash
