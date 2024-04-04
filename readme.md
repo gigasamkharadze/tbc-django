@@ -1,7 +1,11 @@
 # Django Project
 
 - ## Custom User
-The First step is to create a custom user model. We will create a new app called `custom_user` and create a custom user model in it. We will also create a custom user manager for our custom user model.
+The First step is to create a custom user model. 
+We will create a new app called `custom_user` and 
+create a custom user model that extends the `AbstractUser` model.
+
+We will also create a custom user manager for our custom user model.
 
 ```python
 class CustomUser(AbstractUser):
@@ -49,9 +53,17 @@ class CustomUserManager(BaseUserManager):
             raise ValueError(_("Superuser must have is_superuser=True."))
         return self.create_user(email, password, **extra_fields)
 ```
-In this custom user model, we have overridden the `USERNAME_FIELD` to `email` and set `REQUIRED_FIELDS` to an empty list. We have also created a custom user manager where we have overridden the `create_user` and `create_superuser` methods to create a user and superuser respectively.
 
-We have also created a form to register a new user
+Here we observe the following:
+1. We have created a custom user model that extends the `AbstractUser` model.
+2. username field is set to None and email field is set to `models.EmailField(_("email address"), unique=True)`.
+3. `USERNAME_FIELD` is set to `email` and `REQUIRED_FIELDS` is set to an empty list.
+4. We have created a custom user manager that extends the `BaseUserManager` class.
+5. `create_user` method is overridden to create a user with the given email and password.
+6. `create_superuser` method is overridden to create a superuser with the given email and password.
+
+Then, we implement a form for the custom user model to be used in the admin panel.
+
 ![img.png](img.png)
 
 
