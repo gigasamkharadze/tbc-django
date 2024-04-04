@@ -64,7 +64,7 @@ Here we observe the following:
 
 Then, we implement a form for the custom user model to be used in the admin panel.
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 
 ## Installation
